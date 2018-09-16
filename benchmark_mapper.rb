@@ -4,22 +4,22 @@ require 'benchmark'
 Benchmark.bm(30) do |bm|
 
   fruit_basket = []
-  50_000.times { fruit_basket.push("apple", "pear", "banana", "banana", "apple", "pear", "apple", "apple", "banana", "apple", "grape", "grape") }
-
-  bm.report("#map approach") do
-    100.times { map_approach(fruit_basket) }
-  end
-
-  bm.report("short #map approach") do
-    100.times { short_map_approach(fruit_basket) }
-  end
+  100_000.times { fruit_basket.push("apple", "pear", "banana", "banana", "apple", "pear", "apple", "apple", "banana", "apple", "grape", "grape") }
 
   bm.report("#each mapper") do
-    100.times { each_approach(fruit_basket) }
+    50.times { each_approach(fruit_basket) }
   end
 
   bm.report("#each_with_object mapper") do
-    100.times { each_with_object_mapper(fruit_basket) }
+    50.times { each_with_object_mapper(fruit_basket) }
+  end
+
+  bm.report("#map approach") do
+    50.times { map_approach(fruit_basket) }
+  end
+
+  bm.report("short #map approach") do
+    50.times { short_map_approach(fruit_basket) }
   end
 
   equivalence_check =

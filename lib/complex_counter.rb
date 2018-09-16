@@ -1,5 +1,5 @@
 shopping_baskets = { }
-100.times do |i|
+100_000.times do |i|
   basket = "basket#{i}"
   shopping_baskets[basket] = {
     apple: { quantity: 3, price: 1 },
